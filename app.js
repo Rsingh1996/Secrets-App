@@ -9,7 +9,7 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const findOrCreate = require("mongoose-findorcreate");
 
-const port = 3500;
+const PORT = process.env.PORT || 3500;
 
 const app = express();
 
@@ -163,6 +163,5 @@ app.get("/logout", function(req, res){
 })
 
 ///////////////// Server creation ////////////////////////////////
-app.listen( process.env.PORT || port, function () {
-    console.log("Server is listing on port: " + port);
-});
+
+app.listen(PORT, () => console.log(`Listening on port: ${ PORT }`));  
